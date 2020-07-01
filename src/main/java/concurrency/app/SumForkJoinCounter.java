@@ -29,7 +29,8 @@ public class SumForkJoinCounter extends RecursiveTask<Long> {
     private Collection<RecursiveTask<Long>> createSubTasks(int end) {
         final List<RecursiveTask<Long>> dividedTasks = new ArrayList<>();
         dividedTasks.add(new SumForkJoinCounter(numbers.subList(0, numbers.size() / 2)));
-        dividedTasks.add(new SumForkJoinCounter(numbers.subList(numbers.size() / 2, numbers.size())));
+        dividedTasks.add(new SumForkJoinCounter(numbers.subList(numbers.size() / 2,
+                numbers.size())));
         return dividedTasks;
     }
 }
